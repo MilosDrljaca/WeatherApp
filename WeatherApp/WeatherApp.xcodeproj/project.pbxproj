@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5A46CB0526DE259D00713B5D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0426DE259D00713B5D /* Model.swift */; };
+		5A46CB0826DE331900713B5D /* DataPreparation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0726DE331900713B5D /* DataPreparation.swift */; };
 		B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29126DE1D8700D389C1 /* AppDelegate.swift */; };
 		B22EF29426DE1D8700D389C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */; };
 		B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29526DE1D8700D389C1 /* HomeController.swift */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		5A46CB0426DE259D00713B5D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		5A46CB0726DE331900713B5D /* DataPreparation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataPreparation.swift; sourceTree = "<group>"; };
 		B22EF28E26DE1D8700D389C1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22EF29126DE1D8700D389C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		5A46CB0626DE32F400713B5D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				5A46CB0726DE331900713B5D /* DataPreparation.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
 		B22EF28526DE1D8700D389C1 = {
 			isa = PBXGroup;
 			children = (
@@ -68,6 +78,7 @@
 		B22EF29026DE1D8700D389C1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A46CB0626DE32F400713B5D /* Service */,
 				B22EF2AB26DE30AA00D389C1 /* Presenter */,
 				B22EF2AA26DE309000D389C1 /* Controller */,
 				B22EF2A926DE307C00D389C1 /* Delegate */,
@@ -184,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A46CB0526DE259D00713B5D /* Model.swift in Sources */,
+				5A46CB0826DE331900713B5D /* DataPreparation.swift in Sources */,
 				B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */,
 				B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */,
 				B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */,

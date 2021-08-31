@@ -11,7 +11,12 @@ class HomeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        DataPreparation.getCityListData()
+        DataPreparation.getlocationWeatherData()
+        print(DataPreparation.cityList)
+        print(DataPreparation.locationWeather)
+
     }
 
 
