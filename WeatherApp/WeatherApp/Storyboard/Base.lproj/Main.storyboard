@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeController" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YPW-qj-HmX">
+                                <rect key="frame" x="30" y="782" width="354" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="pZ8-cj-n9t"/>
+                                </constraints>
+                                <state key="normal" title="Go to Wether"/>
+                                <connections>
+                                    <segue destination="hne-G6-215" kind="show" id="5BK-Nf-bUe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YPW-qj-HmX" secondAttribute="bottom" constant="30" id="9Ck-1r-Ffa"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YPW-qj-HmX" secondAttribute="trailing" constant="30" id="Gfa-XF-AUG"/>
+                            <constraint firstItem="YPW-qj-HmX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="xpz-tC-JRW"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="30" y="73"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tPF-9P-5J4">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="hne-G6-215" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Spw-2s-djC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTo-vl-WHq">
+                                <rect key="frame" x="132" y="313" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="9GX-LP-naP"/>
+                                    <constraint firstAttribute="height" constant="50" id="sHn-cm-dAT"/>
+                                </constraints>
+                                <state key="normal" title="Daily forcast"/>
+                                <connections>
+                                    <segue destination="snP-9T-HCF" kind="show" id="yHF-gi-Ep4"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hOC-ik-6nz">
+                                <rect key="frame" x="132" y="423" width="150" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="Kab-Gq-jgj"/>
+                                    <constraint firstAttribute="height" constant="50" id="oU7-vP-213"/>
+                                </constraints>
+                                <state key="normal" title="7 day forcast "/>
+                                <connections>
+                                    <segue destination="2Ip-BX-EKj" kind="show" id="et9-hi-5p3"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4fu-mI-Dqa"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eTo-vl-WHq" firstAttribute="centerX" secondItem="Spw-2s-djC" secondAttribute="centerX" id="fkj-NT-Gxh"/>
+                            <constraint firstItem="hOC-ik-6nz" firstAttribute="centerY" secondItem="Spw-2s-djC" secondAttribute="centerY" id="imK-RP-U5e"/>
+                            <constraint firstItem="hOC-ik-6nz" firstAttribute="centerX" secondItem="Spw-2s-djC" secondAttribute="centerX" id="ors-kg-rvt"/>
+                            <constraint firstItem="hOC-ik-6nz" firstAttribute="top" secondItem="eTo-vl-WHq" secondAttribute="bottom" constant="60" id="x7X-ju-Fjh"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="j1S-DL-Qcl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SZn-fh-hxa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="813" y="74"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kSl-vj-6CS">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="snP-9T-HCF" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iYP-gu-KCT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="zgV-Bq-ae8"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fo0-2W-do5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vcS-nH-ONs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1791" y="-102"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Yrg-fC-tyo">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="2Ip-BX-EKj" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Pvk-m3-AlY">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="rAM-FO-s1g"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ncA-SX-XO8"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bHt-ay-J2E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1790" y="615"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
