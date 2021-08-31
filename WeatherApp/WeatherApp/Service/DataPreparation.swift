@@ -14,22 +14,20 @@ class DataPreparation{
     static var locationWeather: LocationWeather?
     
     // MARK: For City
-    static func getCityListData(){
+    static func getCityListData(with query: String = ""){
         
-        URLSession.shared.dataTask(with: cityListURLQuerry(), completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: cityListURLQuerry(query: query), completionHandler: { (data, response, error) in
             if let data = data, let city: [Parent] = try? JSONDecoder().decode([Parent].self, from: data){
-                
                 cityList = city
-                print(city)
             }
-        }
-        ).resume()
+        }).resume()
     }
     
-    static func cityListURLQuerry() -> URL{
-        return URL(string:
-                    "https://www.metaweather.com/api/location/search/?query=usa"
-        )!
+    static func cityListURLQuerry(query text: String) -> URL{
+        if text.contains(" "){
+            return URL(string:"https://www.metaweather.com/api/location/search/?query=\(text.replacingOccurrences(of: " ", with: ""))")!
+        }
+        return URL(string:"https://www.metaweather.com/api/location/search/?query=\(text)")!
     }
     
     // MARK: For Location Weather
@@ -39,7 +37,7 @@ class DataPreparation{
             if let data = data, let weather: LocationWeather = try? JSONDecoder().decode(LocationWeather.self, from: data){
                 
                 locationWeather = weather
-                print(weather)
+//                print(weather)
             }
         }
         )

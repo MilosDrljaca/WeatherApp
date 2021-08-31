@@ -26,15 +26,66 @@
                                     <segue destination="hne-G6-215" kind="show" id="5BK-Nf-bUe"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="izE-Uh-Jfz">
+                                <rect key="frame" x="20" y="129" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="IPa-Ec-Jv9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected City" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9sW-0B-3r9">
+                                <rect key="frame" x="20" y="64" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="wZj-HW-HHX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zgw-RP-rHd">
+                                <rect key="frame" x="20" y="194" width="374" height="568"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="sectionIndexBackgroundColor" red="0.79343152049999999" green="0.99844819309999999" blue="0.79034787419999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cityCell" id="Cyg-SH-y33">
+                                        <rect key="frame" x="0.0" y="24.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Cyg-SH-y33" id="dQi-mM-4Qu">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="35x-7y-WW0"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="17l-6l-ZBw"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Zgw-RP-rHd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="0EA-Ru-wca"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9sW-0B-3r9" secondAttribute="trailing" constant="20" id="4uG-sU-ACv"/>
+                            <constraint firstItem="izE-Uh-Jfz" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="6Rx-iv-l1I"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zgw-RP-rHd" secondAttribute="trailing" constant="20" id="8gv-4g-TNC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YPW-qj-HmX" secondAttribute="bottom" constant="30" id="9Ck-1r-Ffa"/>
+                            <constraint firstItem="izE-Uh-Jfz" firstAttribute="top" secondItem="9sW-0B-3r9" secondAttribute="bottom" constant="20" id="DKV-1R-HTF"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YPW-qj-HmX" secondAttribute="trailing" constant="30" id="Gfa-XF-AUG"/>
+                            <constraint firstItem="9sW-0B-3r9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Pq8-g7-l2C"/>
+                            <constraint firstItem="YPW-qj-HmX" firstAttribute="top" secondItem="Zgw-RP-rHd" secondAttribute="bottom" constant="20" id="aQI-RH-V3s"/>
+                            <constraint firstItem="Zgw-RP-rHd" firstAttribute="top" secondItem="izE-Uh-Jfz" secondAttribute="bottom" constant="20" id="bP9-Ct-Ndp"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="izE-Uh-Jfz" secondAttribute="trailing" constant="20" id="wNn-9f-xGe"/>
                             <constraint firstItem="YPW-qj-HmX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="xpz-tC-JRW"/>
+                            <constraint firstItem="9sW-0B-3r9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="zQW-UQ-KZi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityListTableView" destination="Zgw-RP-rHd" id="aVO-i7-CIH"/>
+                        <outlet property="inputTextSearch" destination="izE-Uh-Jfz" id="KM6-ap-Lt0"/>
+                        <outlet property="selectedCity" destination="9sW-0B-3r9" id="pg1-DG-KV1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
