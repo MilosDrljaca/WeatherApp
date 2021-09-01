@@ -16,6 +16,8 @@
 		B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29A26DE1D8700D389C1 /* WeatherApp.xcdatamodeld */; };
 		B22EF29E26DE1D8800D389C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B22EF29D26DE1D8800D389C1 /* Assets.xcassets */; };
 		B22EF2A126DE1D8800D389C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22EF29F26DE1D8800D389C1 /* LaunchScreen.storyboard */; };
+		B22EF2AD26DE596600D389C1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF2AC26DE596600D389C1 /* HomePresenter.swift */; };
+		B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293B64026DF661A00801276 /* ManageCoreData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		B22EF29D26DE1D8800D389C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B22EF2A026DE1D8800D389C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B22EF2A226DE1D8800D389C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B22EF2AC26DE596600D389C1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
+		B293B64026DF661A00801276 /* ManageCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoreData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 		B22EF29026DE1D8700D389C1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				B293B63F26DF652E00801276 /* CoreData */,
 				5A46CB0626DE32F400713B5D /* Service */,
 				B22EF2AB26DE30AA00D389C1 /* Presenter */,
 				B22EF2AA26DE309000D389C1 /* Controller */,
@@ -120,8 +125,17 @@
 		B22EF2AB26DE30AA00D389C1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				B22EF2AC26DE596600D389C1 /* HomePresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		B293B63F26DF652E00801276 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B293B64026DF661A00801276 /* ManageCoreData.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,6 +210,8 @@
 			files = (
 				5A46CB0526DE259D00713B5D /* Model.swift in Sources */,
 				5A46CB0826DE331900713B5D /* DataPreparation.swift in Sources */,
+				B22EF2AD26DE596600D389C1 /* HomePresenter.swift in Sources */,
+				B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */,
 				B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */,
 				B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */,
 				B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */,
