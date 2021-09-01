@@ -19,7 +19,7 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        DataPreparation.getlocationWeatherData()
+        
         getSelectedCity()
     }
     
@@ -32,6 +32,7 @@ class HomeController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        DataPreparation.getlocationWeatherData()
         inputTextSearch.addTarget(self, action: #selector(changedValue), for: .editingChanged)
     }
    

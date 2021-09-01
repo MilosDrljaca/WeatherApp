@@ -34,7 +34,7 @@ class DataPreparation{
     // MARK: For Location Weather
     static func getlocationWeatherData(){
         
-        URLSession.shared.dataTask(with: LocationWeatherURLQuerry(), completionHandler: { (data, response, error) in
+        URLSession.shared.dataTask(with: LocationWeatherURLQuerry(cityNumber: selectedCity!.woeid), completionHandler: { (data, response, error) in
             if let data = data, let weather: LocationWeather = try? JSONDecoder().decode(LocationWeather.self, from: data){
                 
                 locationWeather = weather
@@ -45,9 +45,9 @@ class DataPreparation{
         .resume()
     }
     
-    static func LocationWeatherURLQuerry() -> URL{
+    static func LocationWeatherURLQuerry(cityNumber: Int) -> URL{
         return URL(string:
-                    "https://www.metaweather.com/api/location/44418/"
+                    "https://www.metaweather.com/api/location/\(cityNumber)/"
         )!
     }
 }
