@@ -10,6 +10,7 @@ import CoreData
 
 class DataPreparation{
 
+    static var selectedCity: Parent?
     static var cityList: [Parent] = []
     static var locationWeather: LocationWeather?
     

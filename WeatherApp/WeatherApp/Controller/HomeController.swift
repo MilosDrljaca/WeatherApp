@@ -20,13 +20,21 @@ class HomeController: UIViewController {
         super.viewDidLoad()
         
         DataPreparation.getlocationWeatherData()
+        getSelectedCity()
+    }
+    
+    private func getSelectedCity(){
+        if let city = ManageCoreData.retriveCity(){
+            DataPreparation.selectedCity = city
+            selectedCity.text = city.title
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         inputTextSearch.addTarget(self, action: #selector(changedValue), for: .editingChanged)
     }
-    
+   
     @objc func changedValue(_ textField: UITextField){
         if let word = textField.text{
             DataPreparation.getCityListData(with: word)
@@ -55,5 +63,7 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCity.text = homePresenter.getCity(position: indexPath.row).title
+        ManageCoreData.storeCity(city: homePresenter.getCity(position: indexPath.row))
+        DataPreparation.selectedCity = ManageCoreData.retriveCity()
     }
 }
