@@ -19,9 +19,17 @@ class ManageCoreData{
         let cityEntity = NSManagedObject(entity: entity, insertInto: managedContext)
         
 //        if let savedCity = retriveCity(){
-//            print("-------ovo je savedCity \(savedCity)")
-//            print("-------ovo je city \(city)")
-//            managedContext.delete(self.covertParentToNSManagedObject(city: savedCity)!)
+//            let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "CityEntity")
+//            let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+//
+//            managedContext.delete(covertParentToNSManagedObject(city: savedCity)!)
+//            do{
+//                try managedContext.execute(deleteRequest)
+//                try managedContext.save()
+//            }catch let error as NSError{
+//                print("Couldn't delete data, reason: \(error)")
+//            }
+//
 //        }
         
         cityEntity.setValue(city.title, forKey: "title")
@@ -44,24 +52,15 @@ class ManageCoreData{
         
         do{
             let cityList = try managedContext.fetch(fetchRequest)
-            return covertNSManagedObjectToParent(object: cityList[0])
+            if cityList.count > 1{
+                return covertNSManagedObjectToParent(object: cityList[0])
+            }
         }catch let error as NSError{
             print("Couldn't retrive data, reason: \(error)")
         }
         
         return nil
     }
-    
-//    static private func covertNSManagedObjectToParent(object: [NSManagedObject]) -> [Parent]?{
-//        var niz:[Parent] = []
-//        object.forEach { city in
-//            niz.append(Parent(title: city.value(forKey: "title") as! String,
-//                          locationType: city.value(forKey: "locationType") as! String,
-//                          woeid: city.value(forKey: "woeid") as! Int,
-//                          lattLong: city.value(forKey: "lattLong") as! String))
-//        }
-//        return niz
-//    }
     
     static private func covertNSManagedObjectToParent(object: NSManagedObject) -> Parent?{
         print("ovo je object \(object)")

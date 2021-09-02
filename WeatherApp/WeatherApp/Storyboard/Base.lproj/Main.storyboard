@@ -92,10 +92,10 @@
             </objects>
             <point key="canvasLocation" x="939.13043478260875" y="72.991071428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--LocationVC-->
         <scene sceneID="tPF-9P-5J4">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="hne-G6-215" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="hne-G6-215" customClass="LocationVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Spw-2s-djC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

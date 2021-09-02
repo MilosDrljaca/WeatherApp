@@ -19,7 +19,6 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         getSelectedCity()
     }
     
@@ -64,7 +63,8 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedCity.text = homePresenter.getCity(position: indexPath.row).title
-        ManageCoreData.storeCity(city: homePresenter.getCity(position: indexPath.row))
-        DataPreparation.selectedCity = ManageCoreData.retriveCity()
+        let city = homePresenter.getCity(position: indexPath.row)
+        ManageCoreData.storeCity(city: city)
+        DataPreparation.selectedCity = city
     }
 }
