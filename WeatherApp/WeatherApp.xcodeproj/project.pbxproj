@@ -12,6 +12,8 @@
 		5A46CB0A26DE5C1500713B5D /* DailyForcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0926DE5C1500713B5D /* DailyForcastVC.swift */; };
 		5A46CB0C26DE5C4400713B5D /* DailyForcastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0B26DE5C4400713B5D /* DailyForcastPresenter.swift */; };
 		5A46CB0F26DE692600713B5D /* CellForDailyForcastTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0E26DE692600713B5D /* CellForDailyForcastTV.swift */; };
+		5A8917C626E0FF8D003BCD56 /* ConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917C526E0FF8D003BCD56 /* ConfigData.swift */; };
+		5A8917C826E10317003BCD56 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917C726E10317003BCD56 /* LocationVC.swift */; };
 		B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29126DE1D8700D389C1 /* AppDelegate.swift */; };
 		B22EF29426DE1D8700D389C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */; };
 		B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29526DE1D8700D389C1 /* HomeController.swift */; };
@@ -29,6 +31,8 @@
 		5A46CB0926DE5C1500713B5D /* DailyForcastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForcastVC.swift; sourceTree = "<group>"; };
 		5A46CB0B26DE5C4400713B5D /* DailyForcastPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DailyForcastPresenter.swift; path = WeatherApp/Controller/DailyForcastPresenter.swift; sourceTree = SOURCE_ROOT; };
 		5A46CB0E26DE692600713B5D /* CellForDailyForcastTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForDailyForcastTV.swift; sourceTree = "<group>"; };
+		5A8917C526E0FF8D003BCD56 /* ConfigData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigData.swift; sourceTree = "<group>"; };
+		5A8917C726E10317003BCD56 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
 		B22EF28E26DE1D8700D389C1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22EF29126DE1D8700D389C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +81,14 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		5A8917C426E0FF8D003BCD56 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				5A8917C526E0FF8D003BCD56 /* ConfigData.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		B22EF28526DE1D8700D389C1 = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +108,7 @@
 		B22EF29026DE1D8700D389C1 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				5A8917C426E0FF8D003BCD56 /* Config */,
 				5A46CB0D26DE68EE00713B5D /* Cell */,
 				B293B63F26DF652E00801276 /* CoreData */,
 				5A46CB0626DE32F400713B5D /* Service */,
@@ -132,6 +145,7 @@
 		B22EF2AA26DE309000D389C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5A8917C726E10317003BCD56 /* LocationVC.swift */,
 				B22EF29526DE1D8700D389C1 /* HomeController.swift */,
 				5A46CB0926DE5C1500713B5D /* DailyForcastVC.swift */,
 			);
@@ -228,8 +242,10 @@
 				5A46CB0526DE259D00713B5D /* Model.swift in Sources */,
 				5A46CB0826DE331900713B5D /* DataPreparation.swift in Sources */,
 				5A46CB0A26DE5C1500713B5D /* DailyForcastVC.swift in Sources */,
+				5A8917C626E0FF8D003BCD56 /* ConfigData.swift in Sources */,
 				5A46CB0C26DE5C4400713B5D /* DailyForcastPresenter.swift in Sources */,
 				B22EF2AD26DE596600D389C1 /* HomePresenter.swift in Sources */,
+				5A8917C826E10317003BCD56 /* LocationVC.swift in Sources */,
 				B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */,
 				B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */,
 				B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */,
