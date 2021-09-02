@@ -15,7 +15,7 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         getDailyForcastInfo()
     }
-
+    
     // MARK: Labels for main view
     @IBOutlet var mainImage: UIImageView!
     @IBOutlet var mainTemperatureLabel: UILabel!
@@ -32,7 +32,7 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Table View - Number of row in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return dailyForcastPresenter.getDailyForcast().consolidatedWeather.count
+        return dailyForcastPresenter.getDailyForcastConsolidatedWeatherSize()
     }
     
     // MARK: Table View - Cell for row at
@@ -40,12 +40,12 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ConfigData.cellForDailyForcast, for: indexPath) as! CellForDailyForcastTV
         
-        let dailyForcast = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
-
-        cell.humidityLabel.text = dailyForcast.humidity.description + " %"
-        cell.temperatureLabel.text = dailyForcast.theTemp.description.prefix(2) + " °"
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
         
-        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(dailyForcast.weatherStateAbbr).png"){
+        cell.humidityLabel.text = consolidatedWeather.humidity.description + " %"
+        cell.temperatureLabel.text = getWholeNumber(string: consolidatedWeather.theTemp.description) + " °"
+        
+        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/64/\(consolidatedWeather.weatherStateAbbr).png"){
             URLSession.shared.dataTask(with: url){ (data,response,error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -55,7 +55,7 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
             }.resume()
         }
         
-        cell.timeLabel.text = getHourFromDateTime(dailyForcastCreated: dailyForcast.created.description) + " h"
+        cell.timeLabel.text = getHourFromDateTime(dailyForcastCreated: consolidatedWeather.created.description) + " h"
         
         return cell
     }
@@ -69,16 +69,16 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func getDailyForcastInfo() {
         cityLabel.text = dailyForcastPresenter.getDailyForcast().title
         dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().time.description)
-    
-        let dailyForcast = dailyForcastPresenter.getDailyForcast().consolidatedWeather[0]
-
-        windSpeedLabel.text = dailyForcast.windSpeed.description.prefix(2) + " mph"
-        mainTemperatureLabel.text = dailyForcast.theTemp.description.prefix(2) + " °"
-        mainMinTemperatureLabel.text = dailyForcast.minTemp.description.prefix(2) + " °"
-        mainMaxTemperatureLabel.text = dailyForcast.maxTemp.description.prefix(2) + " °"
-        mainWeatherState.text = dailyForcast.weatherStateName
         
-        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/\(dailyForcast.weatherStateAbbr).png"){
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[0]
+
+        windSpeedLabel.text = getWholeNumber(string: consolidatedWeather.windSpeed.description) + " mph"
+        mainTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.theTemp.description) + " °"
+        mainMinTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.minTemp.description) + " °"
+        mainMaxTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.maxTemp.description) + " °"
+        mainWeatherState.text = consolidatedWeather.weatherStateName
+        
+        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/\(consolidatedWeather.weatherStateAbbr).png"){
             URLSession.shared.dataTask(with: url){ (data,response,error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -94,10 +94,10 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     func getHourFromDateTime(dailyForcastCreated: String) -> String{
         
         let dateFormater = DateFormatter()
-
+        
         dateFormater.dateFormat = ConfigData.dateTimeFormat
         dateFormater.locale = Locale(identifier: ConfigData.dateTimeFormatLocale)
-
+        
         if let hour = dateFormater.date(from: dailyForcastCreated){
             let newDateFormatter = DateFormatter()
             newDateFormatter.dateFormat = "hh"
@@ -110,12 +110,12 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Getting simple date from Api date
     func getDateFromDateTime(dailyForcastCreated: String) -> String{
-
+        
         let dateFormater = DateFormatter()
-
+        
         dateFormater.dateFormat = ConfigData.dateTimeFormat
         dateFormater.locale = Locale(identifier: ConfigData.dateTimeFormatLocale)
-
+        
         if let date = dateFormater.date(from: dailyForcastCreated){
             let newDateFormatter = DateFormatter()
             newDateFormatter.dateFormat = "MMM dd, yyyy"
@@ -128,9 +128,9 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Table View - Did select row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let dailyForcast = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
         
-        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/\(dailyForcast.weatherStateAbbr).png"){
+        if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/\(consolidatedWeather.weatherStateAbbr).png"){
             URLSession.shared.dataTask(with: url){ (data,response,error) in
                 if let data = data{
                     DispatchQueue.main.async {
@@ -141,9 +141,15 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
                 
             }.resume()
         }
-        mainTemperatureLabel.text = dailyForcast.theTemp.description.prefix(2) + " °"
-        mainMinTemperatureLabel.text = dailyForcast.minTemp.description.prefix(2) + " °"
-        mainMaxTemperatureLabel.text = dailyForcast.maxTemp.description.prefix(2) + " °" 
-        mainWeatherState.text = dailyForcast.weatherStateName
+        mainTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.theTemp.description) + " °"
+        mainMinTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.minTemp.description) + " °"
+        mainMaxTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.maxTemp.description) + " °"
+        mainWeatherState.text = consolidatedWeather.weatherStateName
+    }
+    
+    func getWholeNumber(string: String) -> String {
+        let delimiter = "."
+        let value = string.components(separatedBy: delimiter)
+        return value[0]
     }
 }

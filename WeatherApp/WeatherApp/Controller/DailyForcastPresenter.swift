@@ -20,4 +20,8 @@ class DailyForcastPresenter{
     func getDailyForcast() -> LocationWeather{
         return dailyForcast
     }
+    
+    func getDailyForcastConsolidatedWeatherSize() -> Int{
+        return dailyForcast.consolidatedWeather.count
+    }
 }

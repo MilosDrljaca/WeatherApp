@@ -279,7 +279,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z1Z-lZ-rUB">
-                                                        <rect key="frame" x="10" y="65" width="118" height="17"/>
+                                                        <rect key="frame" x="0.0" y="65" width="138" height="17"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                         <color key="textColor" systemColor="systemGray2Color"/>
                                                         <nil key="highlightedColor"/>
@@ -287,10 +287,10 @@
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstItem="z1Z-lZ-rUB" firstAttribute="leading" secondItem="c23-Xx-pM2" secondAttribute="leading" constant="10" id="7qW-j0-Wb3"/>
+                                                    <constraint firstItem="z1Z-lZ-rUB" firstAttribute="leading" secondItem="c23-Xx-pM2" secondAttribute="leading" id="7qW-j0-Wb3"/>
                                                     <constraint firstItem="z1Z-lZ-rUB" firstAttribute="centerX" secondItem="c23-Xx-pM2" secondAttribute="centerX" id="BnL-0Z-PjZ"/>
                                                     <constraint firstItem="gAF-7X-FS1" firstAttribute="centerX" secondItem="c23-Xx-pM2" secondAttribute="centerX" id="C1g-Ji-LZJ"/>
-                                                    <constraint firstAttribute="trailing" secondItem="z1Z-lZ-rUB" secondAttribute="trailing" constant="10" id="PUx-ET-Dv4"/>
+                                                    <constraint firstAttribute="trailing" secondItem="z1Z-lZ-rUB" secondAttribute="trailing" id="PUx-ET-Dv4"/>
                                                     <constraint firstItem="gAF-7X-FS1" firstAttribute="top" secondItem="c23-Xx-pM2" secondAttribute="top" constant="20" id="Vfg-PT-r8n"/>
                                                     <constraint firstItem="z1Z-lZ-rUB" firstAttribute="top" secondItem="gAF-7X-FS1" secondAttribute="bottom" constant="5" id="xNb-Gf-HOk"/>
                                                 </constraints>
@@ -399,7 +399,7 @@
                                 <rect key="frame" x="0.0" y="388" width="414" height="474"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellForDailyForcast" rowHeight="94" id="cEA-Jq-bG6" customClass="CellForDailyForcastTV" customModule="WeatherApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cellForDailyForcast" rowHeight="94" id="cEA-Jq-bG6" customClass="CellForDailyForcastTV" customModule="WeatherApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="94"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cEA-Jq-bG6" id="dQy-e2-PbE">
