@@ -14,6 +14,9 @@
 		5A46CB0F26DE692600713B5D /* CellForDailyForcastTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A46CB0E26DE692600713B5D /* CellForDailyForcastTV.swift */; };
 		5A8917C626E0FF8D003BCD56 /* ConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917C526E0FF8D003BCD56 /* ConfigData.swift */; };
 		5A8917C826E10317003BCD56 /* LocationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917C726E10317003BCD56 /* LocationVC.swift */; };
+		5A8917CA26E22429003BCD56 /* WeeklyForecastPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917C926E22429003BCD56 /* WeeklyForecastPresenter.swift */; };
+		5A8917CC26E22435003BCD56 /* WeeklyForcastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917CB26E22435003BCD56 /* WeeklyForcastVC.swift */; };
+		5A8917CE26E22501003BCD56 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8917CD26E22501003BCD56 /* Test.swift */; };
 		B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29126DE1D8700D389C1 /* AppDelegate.swift */; };
 		B22EF29426DE1D8700D389C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */; };
 		B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF29526DE1D8700D389C1 /* HomeController.swift */; };
@@ -33,6 +36,9 @@
 		5A46CB0E26DE692600713B5D /* CellForDailyForcastTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForDailyForcastTV.swift; sourceTree = "<group>"; };
 		5A8917C526E0FF8D003BCD56 /* ConfigData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfigData.swift; sourceTree = "<group>"; };
 		5A8917C726E10317003BCD56 /* LocationVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationVC.swift; sourceTree = "<group>"; };
+		5A8917C926E22429003BCD56 /* WeeklyForecastPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyForecastPresenter.swift; sourceTree = "<group>"; };
+		5A8917CB26E22435003BCD56 /* WeeklyForcastVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeeklyForcastVC.swift; sourceTree = "<group>"; };
+		5A8917CD26E22501003BCD56 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		B22EF28E26DE1D8700D389C1 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B22EF29126DE1D8700D389C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B22EF29326DE1D8700D389C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -85,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				5A8917C526E0FF8D003BCD56 /* ConfigData.swift */,
+				5A8917CD26E22501003BCD56 /* Test.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -145,6 +152,7 @@
 		B22EF2AA26DE309000D389C1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				5A8917CB26E22435003BCD56 /* WeeklyForcastVC.swift */,
 				5A8917C726E10317003BCD56 /* LocationVC.swift */,
 				B22EF29526DE1D8700D389C1 /* HomeController.swift */,
 				5A46CB0926DE5C1500713B5D /* DailyForcastVC.swift */,
@@ -155,6 +163,7 @@
 		B22EF2AB26DE30AA00D389C1 /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				5A8917C926E22429003BCD56 /* WeeklyForecastPresenter.swift */,
 				5A46CB0B26DE5C4400713B5D /* DailyForcastPresenter.swift */,
 				B22EF2AC26DE596600D389C1 /* HomePresenter.swift */,
 			);
@@ -241,11 +250,14 @@
 			files = (
 				5A46CB0526DE259D00713B5D /* Model.swift in Sources */,
 				5A46CB0826DE331900713B5D /* DataPreparation.swift in Sources */,
+				5A8917CA26E22429003BCD56 /* WeeklyForecastPresenter.swift in Sources */,
 				5A46CB0A26DE5C1500713B5D /* DailyForcastVC.swift in Sources */,
 				5A8917C626E0FF8D003BCD56 /* ConfigData.swift in Sources */,
+				5A8917CE26E22501003BCD56 /* Test.swift in Sources */,
 				5A46CB0C26DE5C4400713B5D /* DailyForcastPresenter.swift in Sources */,
 				B22EF2AD26DE596600D389C1 /* HomePresenter.swift in Sources */,
 				5A8917C826E10317003BCD56 /* LocationVC.swift in Sources */,
+				5A8917CC26E22435003BCD56 /* WeeklyForcastVC.swift in Sources */,
 				B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */,
 				B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */,
 				B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */,
