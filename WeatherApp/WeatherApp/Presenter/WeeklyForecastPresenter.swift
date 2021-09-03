@@ -19,16 +19,21 @@ class WeeklyForecastPresenter{
     func sortWeatherByDate(weeklyForcast: [ConsolidatedWeather]){
         var tempArray: [String: [ConsolidatedWeather]] = [:]
         
-        for forecast in weeklyForcast{
+        firstLoop: for forecast in weeklyForcast{
             let date = forecast.created.components(separatedBy: "T")
             var array: [ConsolidatedWeather] = []
-
-            weeklyForcast.forEach { weather in
-                if weather.created.components(separatedBy: "T")[0] == date[0]{
+            
+            secondLoop: for weather in weeklyForcast{
+                let tempDate = weather.created.components(separatedBy: "T")[0]
+//                if tempArray.keys.contains(tempDate){
+//                    dateExist = true
+//                    break firstLoop
+//                }
+                if tempDate == date[0]{
                     array.append(weather)
                 }
             }
-            
+
             tempArray["\(date[0])"] = array
         }
 
@@ -63,7 +68,7 @@ class WeeklyForecastPresenter{
             }
         }
         
-        return String(format: "%.2f", minT)
+        return String(format: "%.2f", minT) + " °C"
     }
     
     func getMaxTempForDay(position: Int) -> String{
@@ -77,6 +82,6 @@ class WeeklyForecastPresenter{
             }
         }
         
-        return String(format: "%.2f", maxT)
+        return String(format: "%.2f", maxT) + " °C"
     }
 }

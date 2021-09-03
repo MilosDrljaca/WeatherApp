@@ -41,20 +41,26 @@ extension WeeklyForcastVC: UITableViewDelegate, UITableViewDataSource{
         cell.maxTemperature.text
             = weeklyForcastPresenter.getMaxTempForDay(position: indexPath.row)
         
+        if indexPath.row % 2 == 0{
+            cell.backgroundColor = .systemGray6
+        }
+        
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let vc = self.storyboard?.instantiateViewController(identifier: "DailyForcastVC") as! DailyForcastVC
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .formSheet
         
         var day = DataPreparation.locationWeather
         day!.consolidatedWeather = weeklyForcastPresenter.getWeatherForDay(position: indexPath.row)
-        
         vc.dailyForcastPresenter.setDailyForcast(daily: day!)
-//        vc.navigationController?.navigationBar.isHidden = true
         self.present(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return CGFloat(80)
     }
     
 }
