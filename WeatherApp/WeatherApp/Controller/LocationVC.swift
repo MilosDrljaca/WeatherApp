@@ -12,7 +12,8 @@ class LocationVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         DataPreparation.getlocationWeatherData()
-        print("Ovo je sacuvani grad \(DataPreparation.selectedCity)")
+        DataPreparation.getConsolidatedWeatherData()
+       
     }
 
 }

@@ -530,10 +530,10 @@
             </objects>
             <point key="canvasLocation" x="2698.5507246376815" y="-102.45535714285714"/>
         </scene>
-        <!--View Controller-->
+        <!--Weekly ForcastVC-->
         <scene sceneID="Yrg-fC-tyo">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="2Ip-BX-EKj" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="2Ip-BX-EKj" customClass="WeeklyForcastVC" customModule="WeatherApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Pvk-m3-AlY">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

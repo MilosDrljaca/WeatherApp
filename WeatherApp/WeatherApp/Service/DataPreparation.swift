@@ -13,6 +13,7 @@ class DataPreparation{
     static var selectedCity: Parent?
     static var cityList: [Parent] = []
     static var locationWeather: LocationWeather?
+    static var weeklyWeather: [ConsolidatedWeather] = []
     
     // MARK: For City
     static func getCityListData(with query: String = ""){
@@ -47,5 +48,26 @@ class DataPreparation{
         return URL(string:
                     "https://www.metaweather.com/api/location/\(cityNumber)/"
         )!
+    }
+    
+    // MARK: ConsolidatedWeather Weekly forecast
+    static func getConsolidatedWeatherData(){
+        if let cityId = selectedCity?.woeid{
+            URLSession.shared.dataTask(with: consolidatedWeatherURLQuerry(cityId: cityId), completionHandler: { (data, response, error) in
+                if let data = data, let consolidatedWeathers: [ConsolidatedWeather] = try? JSONDecoder().decode([ConsolidatedWeather].self, from: data){
+                    weeklyWeather = consolidatedWeathers
+                }
+            }).resume()
+        }
+    }
+    
+    static func consolidatedWeatherURLQuerry(cityId: Int) -> URL{
+        return URL(string:"https://www.metaweather.com/api/location/\(cityId)/\(todayDate())")!
+    }
+    
+    private static func todayDate() -> String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.string(from:Date())
     }
 }
