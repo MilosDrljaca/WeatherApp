@@ -25,6 +25,7 @@
 		B22EF2A126DE1D8800D389C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B22EF29F26DE1D8800D389C1 /* LaunchScreen.storyboard */; };
 		B22EF2AD26DE596600D389C1 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22EF2AC26DE596600D389C1 /* HomePresenter.swift */; };
 		B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B293B64026DF661A00801276 /* ManageCoreData.swift */; };
+		B29C5A2726E22BB800D98505 /* CellForWeeklyForecastTV.swift in Sources */ = {isa = PBXBuildFile; fileRef = B29C5A2626E22BB800D98505 /* CellForWeeklyForecastTV.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		B22EF2A226DE1D8800D389C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B22EF2AC26DE596600D389C1 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B293B64026DF661A00801276 /* ManageCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageCoreData.swift; sourceTree = "<group>"; };
+		B29C5A2626E22BB800D98505 /* CellForWeeklyForecastTV.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellForWeeklyForecastTV.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				5A46CB0E26DE692600713B5D /* CellForDailyForcastTV.swift */,
+				B29C5A2626E22BB800D98505 /* CellForWeeklyForecastTV.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -256,6 +259,7 @@
 				5A8917CC26E22435003BCD56 /* WeeklyForcastVC.swift in Sources */,
 				B293B64126DF661A00801276 /* ManageCoreData.swift in Sources */,
 				B22EF29C26DE1D8700D389C1 /* WeatherApp.xcdatamodeld in Sources */,
+				B29C5A2726E22BB800D98505 /* CellForWeeklyForecastTV.swift in Sources */,
 				B22EF29626DE1D8700D389C1 /* HomeController.swift in Sources */,
 				B22EF29226DE1D8700D389C1 /* AppDelegate.swift in Sources */,
 				5A46CB0F26DE692600713B5D /* CellForDailyForcastTV.swift in Sources */,

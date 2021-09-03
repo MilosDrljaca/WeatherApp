@@ -9,7 +9,7 @@ import Foundation
 
 class WeeklyForecastPresenter{
     
-    private var weeklyForcast: [Dictionary<String, [ConsolidatedWeather]>.Element]?
+    private var weeklyForcast: [Int : Dictionary<String, [ConsolidatedWeather]>.Element] = [:]
     weak private var weeklyForecastVC: WeeklyForcastVC?
     
     init(weeklyForcastViewC: WeeklyForcastVC) {
@@ -34,8 +34,49 @@ class WeeklyForecastPresenter{
 
         let sorted = tempArray.sorted(by: { $0.0.compare($1.0) == .orderedDescending })
 
-        self.weeklyForcast = sorted
+        for  (i, s) in sorted.enumerated(){
+            self.weeklyForcast[i] = s
+        }
        
     }
     
+    func countDaysInWeek() -> Int{
+        return weeklyForcast.count
+    }
+   
+    func getDayInWeek(position: Int) -> String?{
+        return weeklyForcast[position]?.0
+    }
+    
+    func getWeatherForDay(position: Int) -> [ConsolidatedWeather]{
+        return weeklyForcast[position]!.value
+    }
+    
+    func getMinTempForDay(position: Int) -> String{
+        
+        let weeklyForecast: [ConsolidatedWeather] = getWeatherForDay(position: position)
+        var minT = 0.0
+        
+        for forecast in weeklyForecast{
+            if forecast.minTemp > minT{
+                minT = forecast.minTemp
+            }
+        }
+        
+        return String(format: "%.2f", minT)
+    }
+    
+    func getMaxTempForDay(position: Int) -> String{
+        
+        let weeklyForecast: [ConsolidatedWeather] = getWeatherForDay(position: position)
+        var maxT = 0.0
+        
+        for forecast in weeklyForecast{
+            if forecast.maxTemp > maxT{
+                maxT = forecast.maxTemp
+            }
+        }
+        
+        return String(format: "%.2f", maxT)
+    }
 }

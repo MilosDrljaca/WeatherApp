@@ -10,7 +10,7 @@ import Foundation
 // MARK: - LocationWeather
 
 struct LocationWeather: Codable {
-    let consolidatedWeather: [ConsolidatedWeather]
+    var consolidatedWeather: [ConsolidatedWeather]
     let time, sunRise, sunSet, timezoneName: String
     let parent: Parent
     let sources: [Source]

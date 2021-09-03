@@ -9,7 +9,7 @@ import UIKit
 
 class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
-    lazy private var dailyForcastPresenter: DailyForcastPresenter = DailyForcastPresenter(dailyForcastVC: self, dailyForcast: DataPreparation.locationWeather!)
+    lazy var dailyForcastPresenter: DailyForcastPresenter = DailyForcastPresenter(dailyForcastVC: self, dailyForcast: DataPreparation.locationWeather!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,7 +68,8 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: Getting inital forcast info
     func getDailyForcastInfo() {
         cityLabel.text = dailyForcastPresenter.getDailyForcast().title
-        dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().time.description)
+//        dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().time.description)
+        dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().consolidatedWeather[1].created.description)
         
         let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[0]
 

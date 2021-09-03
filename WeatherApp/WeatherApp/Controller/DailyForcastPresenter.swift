@@ -17,6 +17,10 @@ class DailyForcastPresenter{
         self.dailyForcast = dailyForcast
     }
     
+    func setDailyForcast(daily: LocationWeather){
+        self.dailyForcast = daily
+    }
+    
     func getDailyForcast() -> LocationWeather{
         return dailyForcast
     }
