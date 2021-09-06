@@ -1,8 +1,8 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2580
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Weather Application is the implementation of MVP design pattern and free a avalaible API ( https://www.metaweather.com/api/ ) written in Swift language with xCode IDE. 
 
-\f0\fs24 \cf0 Sadfas}
+Some of the basic functionality of the app are: 
+ -   It is available for the user to get coordinates for closest cities locations, to choose
+-  It is available for the user to persisted he's current city into CoreData
+- Shows the weather forecast on daily and weekly (7 days back) level. 
+
+It’s important to note that MVP uses passive View pattern. It means all the actions will be forwarded to the presenter. Which will trigger the ui updates using delegates. so the view will only passe actions and listen to the presenter updates.
