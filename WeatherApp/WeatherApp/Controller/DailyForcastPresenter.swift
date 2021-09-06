@@ -15,6 +15,7 @@ class DailyForcastPresenter{
     init(dailyForcastVC: DailyForcastVC, dailyForcast: LocationWeather) {
         self.dailyForcastVC = dailyForcastVC
         self.dailyForcast = dailyForcast
+        sortConsolidatedWeather()
     }
     
     func setDailyForcast(daily: LocationWeather){
@@ -23,6 +24,10 @@ class DailyForcastPresenter{
     
     func getDailyForcast() -> LocationWeather{
         return dailyForcast
+    }
+    
+    func sortConsolidatedWeather()  {
+        dailyForcast.consolidatedWeather.sorted(by: { $0.created.compare($1.created) == .orderedDescending })
     }
     
     func getDailyForcastConsolidatedWeatherSize() -> Int{

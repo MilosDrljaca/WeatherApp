@@ -40,7 +40,7 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         let cell = tableView.dequeueReusableCell(withIdentifier: ConfigData.cellForDailyForcast, for: indexPath) as! CellForDailyForcastTV
         
-        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather.reversed()[indexPath.row]
         
         cell.humidityLabel.text = consolidatedWeather.humidity.description + " %"
         cell.temperatureLabel.text = getWholeNumber(string: consolidatedWeather.theTemp.description) + " °"
@@ -68,7 +68,6 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     // MARK: Getting inital forcast info
     func getDailyForcastInfo() {
         cityLabel.text = dailyForcastPresenter.getDailyForcast().title
-//        dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().time.description)
         dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().consolidatedWeather[1].created.description)
         
         let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[0]
@@ -101,9 +100,9 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
         
         if let hour = dateFormater.date(from: dailyForcastCreated){
             let newDateFormatter = DateFormatter()
-            newDateFormatter.dateFormat = "hh"
+            newDateFormatter.dateFormat = "HH"
             let newHour = newDateFormatter.string(from: hour)
-            
+
             return newHour
         }
         return ""
