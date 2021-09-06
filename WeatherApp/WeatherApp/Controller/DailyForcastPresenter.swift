@@ -27,7 +27,11 @@ class DailyForcastPresenter{
     }
     
     func sortConsolidatedWeather()  {
-        dailyForcast.consolidatedWeather.sorted(by: { $0.created.compare($1.created) == .orderedDescending })
+        dailyForcast.consolidatedWeather = dailyForcast.consolidatedWeather.sorted(by: { $0.created.compare($1.created) == .orderedDescending })
+    }
+    
+    func getConsolidateWeatherCount() -> Int {
+        return dailyForcast.consolidatedWeather.count
     }
     
     func getDailyForcastConsolidatedWeatherSize() -> Int{

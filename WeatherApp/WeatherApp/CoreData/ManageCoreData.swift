@@ -63,7 +63,6 @@ class ManageCoreData{
     }
     
     static private func covertNSManagedObjectToParent(object: NSManagedObject) -> Parent?{
-        print("ovo je object \(object)")
         return Parent(title: object.value(forKey: "title") as! String,
                       locationType: object.value(forKey: "locationType") as! String,
                       woeid: object.value(forKey: "woeid") as! Int,
@@ -80,7 +79,7 @@ class ManageCoreData{
         cityEntity.setValue(city.locationType, forKey: "locationType")
         cityEntity.setValue(city.woeid, forKey: "woeid")
         cityEntity.setValue(city.lattLong, forKey: "lattLong")
-        print(cityEntity, "ovo je cityEntity")
+
         return  cityEntity
     }
 }

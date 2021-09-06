@@ -70,7 +70,7 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
         cityLabel.text = dailyForcastPresenter.getDailyForcast().title
         dateLabel.text = getDateFromDateTime(dailyForcastCreated: dailyForcastPresenter.getDailyForcast().consolidatedWeather[1].created.description)
         
-        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[0]
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[dailyForcastPresenter.getConsolidateWeatherCount() - 1]
 
         windSpeedLabel.text = getWholeNumber(string: consolidatedWeather.windSpeed.description) + " mph"
         mainTemperatureLabel.text = getWholeNumber(string: consolidatedWeather.theTemp.description) + " °"
@@ -82,7 +82,6 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
             URLSession.shared.dataTask(with: url){ (data,response,error) in
                 if let data = data{
                     DispatchQueue.main.async {
-                        print(data)
                         self.mainImage.image =  UIImage(data: data)
                     }
                 }
@@ -128,13 +127,12 @@ class DailyForcastVC: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // MARK: Table View - Did select row at
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather[indexPath.row]
+        let consolidatedWeather = dailyForcastPresenter.getDailyForcast().consolidatedWeather.reversed()[indexPath.row]
         
         if let url = URL(string: "https://www.metaweather.com/static/img/weather/png/\(consolidatedWeather.weatherStateAbbr).png"){
             URLSession.shared.dataTask(with: url){ (data,response,error) in
                 if let data = data{
                     DispatchQueue.main.async {
-                        print(data)
                         self.mainImage.image =  UIImage(data: data)
                     }
                 }
