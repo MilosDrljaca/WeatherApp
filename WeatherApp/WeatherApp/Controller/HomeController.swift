@@ -6,21 +6,44 @@
 //
 
 import UIKit
+import CoreLocation
 
 class HomeController: UIViewController {
     
     lazy var homePresenter = HomePresenter(viewController: self)
+    var locManager = CLLocationManager()
+    var currentLocation: CLLocation?
     
     @IBOutlet var cityListTableView: UITableView!
     @IBOutlet var inputTextSearch: UITextField!
     @IBOutlet var selectedCity: UILabel!
+    @IBOutlet var locationButton: UIButton!
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        locManager.requestWhenInUseAuthorization()
         getSelectedCity()
     }
+    
+    @IBAction func clicked(_ sender: Any) {
+        switch locManager.authorizationStatus{
+        case .restricted, .denied:
+            currentLocation = nil
+        default:
+            currentLocation = locManager.location
+        }
+        
+        if let coordinate = currentLocation?.coordinate{
+            DataPreparation.getCityListByLattLongData(latitude: coordinate.latitude, longitude: coordinate.latitude) { [self] list in
+                homePresenter.setCityList(cityList: list)
+                DispatchQueue.main.async {
+                    cityListTableView.reloadData()
+                }
+            }
+        }
+    }
+    
     
     private func getSelectedCity(){
         if let city = ManageCoreData.retriveCity(){

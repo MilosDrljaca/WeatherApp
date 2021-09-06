@@ -15,7 +15,7 @@ class DataPreparation{
     static var locationWeather: LocationWeather?
     static var weeklyWeather: [ConsolidatedWeather] = []
     
-    // MARK: For City
+    // MARK: For Cities
     static func getCityListData(with query: String = ""){
         
         URLSession.shared.dataTask(with: cityListURLQuerry(query: query), completionHandler: { (data, response, error) in
@@ -69,5 +69,21 @@ class DataPreparation{
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         return formatter.string(from:Date())
+    }
+    
+    // MARK: For Cities based on Current Location
+    static func getCityListByLattLongData(latitude: Double, longitude: Double, completion: @escaping ([Parent]) -> Void){
+        
+        URLSession.shared.dataTask(with: latitudeLongitudeURLQuerry(latitude: latitude, longitude: longitude), completionHandler: { (data, response, error) in
+            if let data = data, let cities: [Parent] = try? JSONDecoder().decode([Parent].self, from: data){
+                cityList = cities
+                completion(cities)
+            }
+        }).resume()
+        
+    }
+    
+    static func latitudeLongitudeURLQuerry(latitude: Double, longitude: Double) -> URL{
+        return URL(string:"https://www.metaweather.com/api/location/search/?lattlong=\(latitude),\(longitude)")!
     }
 }

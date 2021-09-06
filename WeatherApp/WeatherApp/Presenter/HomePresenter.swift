@@ -29,4 +29,8 @@ class HomePresenter {
     func getCity(position: Int) -> Parent{
         return cityList[position]
     }
+    
+    func setCityList(cityList:[Parent]){
+        self.cityList = cityList
+    }
 }

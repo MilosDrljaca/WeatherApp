@@ -77,6 +77,9 @@
                                 <state key="normal" title="Location">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MBQ-nX-jbw"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -104,6 +107,7 @@
                     <connections>
                         <outlet property="cityListTableView" destination="Zgw-RP-rHd" id="aVO-i7-CIH"/>
                         <outlet property="inputTextSearch" destination="izE-Uh-Jfz" id="KM6-ap-Lt0"/>
+                        <outlet property="locationButton" destination="aAg-wm-XVb" id="eeS-vW-S2b"/>
                         <outlet property="selectedCity" destination="9sW-0B-3r9" id="pg1-DG-KV1"/>
                     </connections>
                 </viewController>
