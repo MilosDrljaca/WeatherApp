@@ -19,11 +19,13 @@ class WeeklyForcastVC: UIViewController {
         super.viewDidLoad()
 
         weeklyForcastPresenter.sortWeatherByDate(weeklyForcast: DataPreparation.weeklyWeather)
+        self.navigationItem.title = formatDate(date: String("\(Date())".prefix(10)))
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         selectedCityLabel.text = DataPreparation.selectedCity?.title
+        
     }
 }
 
@@ -35,15 +37,21 @@ extension WeeklyForcastVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "dayInWeek", for: indexPath) as! CellForWeeklyForecastTV
         
-        cell.dateInWeek.text = weeklyForcastPresenter.getDayInWeek(position: indexPath.row)
+        guard let date = weeklyForcastPresenter.getDayInWeek(position: indexPath.row) else { return cell }
+        
+        cell.dateInWeek.text = formatDate(date: date)
         cell.minTemperature.text
             = weeklyForcastPresenter.getMinTempForDay(position: indexPath.row)
         cell.maxTemperature.text
             = weeklyForcastPresenter.getMaxTempForDay(position: indexPath.row)
         
         if indexPath.row % 2 == 0{
-            cell.backgroundColor = .systemGray6
+            cell.backgroundColor = .systemGray3
+        }else{
+            cell.backgroundColor = .quaternaryLabel
         }
+        
+        setColorToSelectedCell(cell: cell, color: UIColor.systemGreen)
         
         return cell
     }
@@ -63,4 +71,24 @@ extension WeeklyForcastVC: UITableViewDelegate, UITableViewDataSource{
         return CGFloat(80)
     }
     
+    private func formatDate(date: String) -> String?{
+        let dateFormater = DateFormatter()
+        
+        dateFormater.dateFormat = "yyyy-MM-dd"
+        dateFormater.locale = Locale(identifier: ConfigData.dateTimeFormatLocale)
+        
+        if let date2 = dateFormater.date(from: date){
+            let newDateFormatter = DateFormatter()
+            newDateFormatter.dateFormat = "MMM dd, yyyy"
+            let newDate = newDateFormatter.string(from: date2)
+            return newDate
+        }
+        return nil
+    }
+    
+    private func setColorToSelectedCell(cell: UITableViewCell, color: UIColor){
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = color
+        cell.selectedBackgroundView = backgroundView
+    }
 }
